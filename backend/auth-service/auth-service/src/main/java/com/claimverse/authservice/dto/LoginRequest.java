@@ -1,11 +1,13 @@
 package com.claimverse.authservice.dto;
 
-import com.claimverse.authservice.entity.Role;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
-public class RegisterRequest{
+@Getter
+@Setter
+public class LoginRequest{
     private String email;
     private String password;
-    private Role role;
 }
