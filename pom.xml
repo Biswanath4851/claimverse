@@ -1,0 +1,4 @@
+<modules>
+    <module>backend/auth-service</module>
+    <module>backend/user-service</module>
+</modules>
