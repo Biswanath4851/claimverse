@@ -1,0 +1,20 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/claimverse_employee
+    username: postgres
+    password: Satvika@0310
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    org.springframework.security: INFO
+
+jwt:
+  secret: my-very-secret-jwt-key-1234567890123456
+

@@ -3,6 +3,7 @@ package com.claimverse.authservice.security;
 import com.claimverse.authservice.entity.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,10 @@ import java.util.Date;
 
 @Service
 public class JwtService {
-    private static final String SECRET_KEY = "claimverse_2025_secret_verysecureclaimverse_2025";
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
+
+    //private static final String SECRET_KEY = "claimverse_2025_secret_verysecureclaimverse_2025";
 
     public String generateToken(User user){
         return Jwts.builder()
