@@ -30,5 +30,9 @@ public class JwtService {
     private Key getSignKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
+
+    public String extractTenantId(String token) {
+        return extractAllClaims(token).get("tenantId", String.class);
+    }
 }
 

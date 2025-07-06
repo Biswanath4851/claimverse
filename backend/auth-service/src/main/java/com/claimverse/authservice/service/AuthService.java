@@ -3,6 +3,7 @@ package com.claimverse.authservice.service;
 import com.claimverse.authservice.dto.LoginRequest;
 import com.claimverse.authservice.dto.RegisterRequest;
 import com.claimverse.authservice.entity.Role;
+import com.claimverse.authservice.entity.Tenant;
 import com.claimverse.authservice.entity.User;
 import com.claimverse.authservice.repo.UserRepository;
 import com.claimverse.authservice.security.JwtService;
@@ -22,6 +23,7 @@ public class AuthService {
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole() != null ? request.getRole() : Role.EMPLOYEE)
+                .tenant(new Tenant())
                 .build();
         userRepo.save(user);
         return jwtService.generateToken(user);
